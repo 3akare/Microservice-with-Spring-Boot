@@ -1,20 +1,20 @@
 package com.microservice.accounts.service.impl;
 
 import com.microservice.accounts.constant.AccountsConstants;
-import com.microservice.accounts.controller.AccountsController;
+import com.microservice.accounts.dto.AccountsDto;
 import com.microservice.accounts.dto.CustomerDto;
 import com.microservice.accounts.entity.Accounts;
 import com.microservice.accounts.entity.Customer;
 import com.microservice.accounts.exception.CustomerAlreadyExistsException;
+import com.microservice.accounts.exception.ResourceNotFound;
+import com.microservice.accounts.mapper.AccountsMapper;
 import com.microservice.accounts.mapper.CustomerMapper;
 import com.microservice.accounts.repository.AccountsRepository;
 import com.microservice.accounts.repository.CustomerRepository;
 import com.microservice.accounts.service.IAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.Random;
-import java.util.function.Consumer;
 
 @Service
 @RequiredArgsConstructor
@@ -25,16 +25,34 @@ public class AccountServiceImpl implements IAccountService {
     /**
      * @param customerDto - CustomerDto Object
      */
+
     @Override
     public void createAccount(CustomerDto customerDto) {
         /* extract Customer entity from customerDTO */
-        Customer customer = CustomerMapper.MapToCustomer(new Customer(), customerDto);
+        Customer customer = CustomerMapper.mapToCustomer(new Customer(), customerDto);
         /* verify the record doesn't already exist */
         verifyRecord(customer);
-        /* save the entity */
-        Customer savedCustomer = customerRepository.save(customer);
-        /* create and save a new account */
-        accountsRepository.save(createNewAccount(customer));
+        /* save a new customer, and create a new account */
+        accountsRepository.save(createNewAccount(customerRepository.save(customer)));
+    }
+
+    /**
+     * @param mobileNumber - String Object
+     */
+
+    @Override
+    public CustomerDto fetchAccount(String mobileNumber) {
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFound("Customer", "mobileNumber", mobileNumber)
+        );
+
+        Accounts accounts = accountsRepository.findByCustomer(customer).orElseThrow(
+                () -> new ResourceNotFound("Account", "customerId", String.valueOf(customer.getCustomerId()))
+        );
+
+        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+        customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
+        return customerDto;
     }
 
     private Accounts createNewAccount(Customer customer){

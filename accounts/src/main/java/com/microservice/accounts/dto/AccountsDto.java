@@ -1,5 +1,6 @@
 package com.microservice.accounts.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
