@@ -7,8 +7,8 @@
     <list default="true" id="f3264849-4bf5-4d19-9432-7231be8ea4fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/controller/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/dto/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/dto/CustomerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/service/IAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/service/IAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/entity/Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/entity/Accounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/repository/AccountsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/repository/AccountsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/service/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/service/impl/AccountServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +39,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AccountsApplication.executor": "Run",
-    "Application.accounts.executor": "Debug",
+    "Application.accounts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",

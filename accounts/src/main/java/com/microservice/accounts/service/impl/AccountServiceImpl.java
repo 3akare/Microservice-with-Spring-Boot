@@ -13,6 +13,8 @@ import com.microservice.accounts.repository.AccountsRepository;
 import com.microservice.accounts.repository.CustomerRepository;
 import com.microservice.accounts.service.IAccountService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,27 +63,27 @@ public class AccountServiceImpl implements IAccountService {
      * @return boolean indicating if the update was successfully
      */
     @Override
-    @Transactional
     public boolean updateAccount(CustomerDto customerDto) {
+        boolean isUpdated = false;
         /* search for customer by mobile number */
         Customer customer = customerRepository.findByMobileNumber(customerDto.getMobileNumber()).orElseThrow(
                 () -> new ResourceNotFound("Customer", "mobileNumber", customerDto.getMobileNumber())
         );
 
+        /* extract account information */
         AccountsDto accountsDto = customerDto.getAccountData();
 
-        if (accountsDto != null) {
-            Accounts accounts = accountsRepository.findByCustomer(customer).orElseThrow(
-                    () -> new ResourceNotFound("Account", "customer", String.valueOf(customer.getCustomerId()))
-            );
-            AccountsMapper.mapToAccount(accounts, accountsDto);
-            accountsRepository.save(accounts);
+        /* search for account by customer */
+        Accounts accounts = accountsRepository.findByAccountNumber(accountsDto.getAccountNumber()).orElseThrow(
+                () -> new ResourceNotFound("Account", "customer", String.valueOf(customer.getCustomerId()))
+        );
+
+        if (accounts != null) {
+            accountsRepository.save(AccountsMapper.mapToAccount(accounts, accountsDto));
+            customerRepository.save(CustomerMapper.mapToCustomer(customer, customerDto));
+            isUpdated = true;
         }
-
-        CustomerMapper.mapToCustomer(customer, customerDto);
-        customerRepository.save(customer);
-
-        return true;
+        return isUpdated;
     }
 
     private Accounts createNewAccount(Customer customer){

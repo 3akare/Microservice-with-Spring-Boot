@@ -12,7 +12,6 @@ import lombok.*;
 @NoArgsConstructor
 public class Accounts extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountNumber;
 
     private String accountType;
