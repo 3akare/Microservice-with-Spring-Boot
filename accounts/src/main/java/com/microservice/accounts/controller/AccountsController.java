@@ -22,17 +22,22 @@ public class AccountsController {
         iAccountService.createAccount(customerDto);
         return ResponseEntity
             .status(HttpStatus.CREATED)
-            .body(
-                    new ResponseDto(AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201)
-            );
+            .body(new ResponseDto(AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201));
     }
 
-    @GetMapping("/account")
+    @GetMapping
     public ResponseEntity<CustomerDto> fetchAccountDetails(@RequestParam("mobile_number") String mobileNumber){
         /* get customer details */
-        CustomerDto customerDto = iAccountService.fetchAccount(mobileNumber);
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(customerDto);
+                .body(iAccountService.fetchAccount(mobileNumber));
+    }
+
+    @PatchMapping("/update")
+    public ResponseEntity<Boolean> updateAccount(@RequestBody CustomerDto customerDto){
+        /* update customer and account details */
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(iAccountService.updateAccount(customerDto));
     }
 }

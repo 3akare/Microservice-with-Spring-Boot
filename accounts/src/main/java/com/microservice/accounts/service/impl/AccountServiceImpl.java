@@ -14,6 +14,8 @@ import com.microservice.accounts.repository.CustomerRepository;
 import com.microservice.accounts.service.IAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Random;
 
 @Service
@@ -25,7 +27,6 @@ public class AccountServiceImpl implements IAccountService {
     /**
      * @param customerDto - CustomerDto Object
      */
-
     @Override
     public void createAccount(CustomerDto customerDto) {
         /* extract Customer entity from customerDTO */
@@ -38,8 +39,8 @@ public class AccountServiceImpl implements IAccountService {
 
     /**
      * @param mobileNumber - String Object
+     * @return Account Details
      */
-
     @Override
     public CustomerDto fetchAccount(String mobileNumber) {
         Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
@@ -47,12 +48,40 @@ public class AccountServiceImpl implements IAccountService {
         );
 
         Accounts accounts = accountsRepository.findByCustomer(customer).orElseThrow(
-                () -> new ResourceNotFound("Account", "customerId", String.valueOf(customer.getCustomerId()))
+                () -> new ResourceNotFound("Account", "customer", String.valueOf(customer.getCustomerId()))
         );
 
         CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
-        customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
+        customerDto.setAccountData(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
         return customerDto;
+    }
+
+    /**
+     * @param mobileNumber - String Object
+     * @return boolean indicating if the update was successfully
+     */
+    @Override
+    @Transactional
+    public boolean updateAccount(CustomerDto customerDto) {
+        /* search for customer by mobile number */
+        Customer customer = customerRepository.findByMobileNumber(customerDto.getMobileNumber()).orElseThrow(
+                () -> new ResourceNotFound("Customer", "mobileNumber", customerDto.getMobileNumber())
+        );
+
+        AccountsDto accountsDto = customerDto.getAccountData();
+
+        if (accountsDto != null) {
+            Accounts accounts = accountsRepository.findByCustomer(customer).orElseThrow(
+                    () -> new ResourceNotFound("Account", "customer", String.valueOf(customer.getCustomerId()))
+            );
+            AccountsMapper.mapToAccount(accounts, accountsDto);
+            accountsRepository.save(accounts);
+        }
+
+        CustomerMapper.mapToCustomer(customer, customerDto);
+        customerRepository.save(customer);
+
+        return true;
     }
 
     private Accounts createNewAccount(Customer customer){
