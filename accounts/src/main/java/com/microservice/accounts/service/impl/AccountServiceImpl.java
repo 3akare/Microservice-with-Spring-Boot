@@ -13,10 +13,7 @@ import com.microservice.accounts.repository.AccountsRepository;
 import com.microservice.accounts.repository.CustomerRepository;
 import com.microservice.accounts.service.IAccountService;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Random;
 
@@ -59,7 +56,7 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     /**
-     * @param mobileNumber - String Object
+     * @param customerDto - Customer Object
      * @return boolean indicating if the update was successfully
      */
     @Override
@@ -84,6 +81,19 @@ public class AccountServiceImpl implements IAccountService {
             isUpdated = true;
         }
         return isUpdated;
+    }
+
+    @Override
+    public boolean deleteAccount(String mobileNumber) {
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFound("Customer", "mobileNumber", mobileNumber)
+        );
+        Accounts accounts = accountsRepository.findByCustomer(customer).orElseThrow(
+                () -> new ResourceNotFound("Accounts", "customer", String.valueOf(customer.getCustomerId()))
+        );
+        accountsRepository.delete(accounts);
+        customerRepository.delete(customer);
+        return true;
     }
 
     private Accounts createNewAccount(Customer customer){
