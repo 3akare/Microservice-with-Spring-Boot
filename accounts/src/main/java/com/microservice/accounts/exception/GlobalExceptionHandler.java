@@ -1,6 +1,7 @@
 package com.microservice.accounts.exception;
 
 import com.microservice.accounts.dto.ErrorResponseDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -18,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     /* handles all exceptions */
@@ -58,6 +60,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         Map<String, String> validationErrors = new HashMap<>();
         List<ObjectError> validationErrorList = ex.getBindingResult().getAllErrors();
+
+        log.error("{}:{}:{}", headers.getOrigin(), status.value(), request.getHeaderNames());
 
         validationErrorList.forEach((error)->{
             String fieldName = ((FieldError) error).getField();
