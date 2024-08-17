@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: loans
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/loans
+    password: ${MYSQL_PASSWORD:0987}
+    username: ${MYSQL_USER:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8083
+
