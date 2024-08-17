@@ -71,12 +71,12 @@ public class AccountsController {
     )
     @ApiResponses({
         @ApiResponse(
-                responseCode = "200",
-                description = "HTTP Status OK"
+            responseCode = "200",
+            description = "HTTP Status OK"
         ),
         @ApiResponse(
-                responseCode = "500",
-                description = "HTTP Status INTERNAL SERVER ERROR"
+            responseCode = "500",
+            description = "HTTP Status INTERNAL SERVER ERROR"
         )
     })
     @PatchMapping("/update")
@@ -89,28 +89,27 @@ public class AccountsController {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseDto(AccountsConstants.STATUS_200, AccountsConstants.MESSAGE_200)
             );
-        else
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                    new ResponseDto(AccountsConstants.STATUS_500, AccountsConstants.MESSAGE_500)
-            );
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+                new ResponseDto(AccountsConstants.STATUS_500, AccountsConstants.MESSAGE_500)
+        );
     }
 
     @Operation(
-        summary = "Delete Account Details REST API",
+        summary = "Delete Account REST API",
         description = "REST APIs to delete Customer & Account details based on mobile number"
     )
     @ApiResponses({
         @ApiResponse(
-                responseCode = "200",
-                description = "HTTP Status OK"
+            responseCode = "200",
+            description = "HTTP Status OK"
         ),
         @ApiResponse(
-                responseCode = "500",
-                description = "HTTP Status INTERNAL SERVER ERROR"
+            responseCode = "500",
+            description = "HTTP Status INTERNAL SERVER ERROR"
         )
     })
     @DeleteMapping("/delete")
-    public ResponseEntity<ResponseDto> deleteAccountDetails(
+    public ResponseEntity<ResponseDto> deleteAccount(
             @RequestParam("mobile_number")
             @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits")
             String mobileNumber
