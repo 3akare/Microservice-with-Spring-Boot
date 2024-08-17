@@ -23,7 +23,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 				name = "Apache 2.0"
 		)),
 		externalDocs =  @ExternalDocumentation(
-				description = "Bank Accounts microservice REST API Documentation",
+				description = "Bank Cards microservice REST API Documentation",
 				url = "https://github.com/3akare/Microservices-with-Spring-Boot.git"
 		)
 )

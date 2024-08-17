@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3264849-4bf5-4d19-9432-7231be8ea4fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/audit/AuditAwareImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/constant/CardsConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/controller/CardsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/dto/CardsDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/dto/ErrorResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/dto/ResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/entity/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/entity/Cards.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/exception/CardAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/exception/ResourceNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/mapper/CardMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/repository/CardsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/service/ICardsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/service/impl/CardServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/controller/AccountsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/controller/AccountsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/entity/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/CardsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/CardsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,17 +32,17 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AccountsApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.accounts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/DAVID-BAKARE/Documents/Microservices with Spring Boot&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AccountsApplication.executor": "Run",
+    "Application.accounts.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/DAVID-BAKARE/Documents/Microservices with Spring Boot/loans",
+    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\accounts" />

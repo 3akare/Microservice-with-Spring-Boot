@@ -121,8 +121,8 @@ public class CardsController {
             String mobileNumber
     ){
         /* delete card */
-        boolean isUpdated = iCardService.deleteCard(mobileNumber);
-        if(isUpdated)
+        boolean isDeleted = iCardService.deleteCard(mobileNumber);
+        if(isDeleted)
             return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseDto(CardsConstants.STATUS_200, CardsConstants.MESSAGE_200)
             );
