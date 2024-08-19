@@ -4,7 +4,7 @@ import com.microservice.loans.dto.LoansDto;
 import com.microservice.loans.entity.Loans;
 
 public class LoanMapper {
-    public static LoansDto MapToLoanDto(Loans loans, LoansDto loansDto){
+    public static LoansDto mapToLoansDto(Loans loans, LoansDto loansDto){
         loansDto.setLoanNumber(loans.getLoanNumber());
         loansDto.setLoanType(loans.getLoanType());
         loansDto.setTotalLoan(loans.getTotalLoan());
@@ -14,7 +14,7 @@ public class LoanMapper {
         return loansDto;
     }
 
-    public static Loans MapToLoan(Loans loans, LoansDto loansDto){
+    public static Loans mapToLoans(Loans loans, LoansDto loansDto){
         loans.setLoanNumber(loansDto.getLoanNumber());
         loans.setLoanType(loansDto.getLoanType());
         loans.setTotalLoan(loansDto.getTotalLoan());

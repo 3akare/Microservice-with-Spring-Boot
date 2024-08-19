@@ -63,7 +63,7 @@ public class AccountServiceImpl implements IAccountService {
     public boolean updateAccount(CustomerDto customerDto) {
         boolean isUpdated = false;
         /* search for customer by mobile number */
-        Customer customer = customerRepository.findByMobileNumber(customerDto.getMobileNumber()).orElseThrow(
+        Customer customer = customerRepository.findByMobileNumber(customerDto.getMobleNumber()).orElseThrow(
                 () -> new ResourceNotFound("Customer", "mobileNumber", customerDto.getMobileNumber())
         );
 
