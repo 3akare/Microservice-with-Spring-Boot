@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3264849-4bf5-4d19-9432-7231be8ea4fb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/service/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/java/com/microservice/accounts/service/impl/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/entity/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/repository/CardsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/repository/CardsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/service/impl/CardServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/service/impl/CardServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loans/src/main/java/com/microservice/loans/constant/LoansConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/loans/src/main/java/com/microservice/loans/constant/LoansConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loans/src/main/java/com/microservice/loans/mapper/LoanMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/loans/src/main/java/com/microservice/loans/mapper/LoanMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loans/src/main/java/com/microservice/loans/repository/LoansRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/loans/src/main/java/com/microservice/loans/repository/LoansRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loans/src/main/java/com/microservice/loans/service/impl/LoanServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loans/src/main/java/com/microservice/loans/service/impl/LoanServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,10 +45,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AccountsApplication.executor": "Debug",
+    "Application.AccountsApplication.executor": "Run",
     "Application.CardsApplication.executor": "Debug",
     "Application.LoansApplication.executor": "Debug",
     "Application.accounts.executor": "Run",
+    "Maven.accounts [clean].executor": "Run",
+    "Maven.accounts [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "17",
