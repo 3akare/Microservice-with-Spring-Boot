@@ -1,0 +1,38 @@
+services:
+  accounts:
+    image: 3akare/accounts:v1
+    container_name: accounts-ms
+    ports:
+      - 8081:8081
+    deploy:
+      resources:
+        limits:
+          memory: 700m # maximum of 700mb memory size
+    networks:
+      - bank-ms
+  cards:
+    image: 3akare/cards:s4
+    container_name: cards-ms
+    ports:
+      - 8082:8082
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - bank-ms
+  loans:
+    image: 3akare/loans:s4
+    container_name: loans-ms
+    ports:
+      - 8083:8083
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - bank-ms
+
+networks:
+  bank-ms:
+    driver: bridge

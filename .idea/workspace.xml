@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3264849-4bf5-4d19-9432-7231be8ea4fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/accounts/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,13 +46,19 @@
     "Application.CardsApplication.executor": "Debug",
     "Application.LoansApplication.executor": "Debug",
     "Application.accounts.executor": "Run",
+    "Application.cards.executor": "Run",
+    "Application.loans.executor": "Run",
     "Maven.accounts [clean].executor": "Run",
     "Maven.accounts [install].executor": "Run",
+    "Maven.cards [clean].executor": "Run",
+    "Maven.cards [install].executor": "Run",
+    "Maven.loans [clean].executor": "Run",
+    "Maven.loans [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DAVID-BAKARE/Documents/Microservices with Spring Boot/accounts",
+    "last_opened_file_path": "C:/Users/DAVID-BAKARE/Documents/remita-workspace",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -64,6 +71,36 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\accounts" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.cards">
+    <configuration name="accounts" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.microservice.accounts.AccountsApplication" />
+      <module name="accounts" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="cards" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.microservice.cards.CardsApplication" />
+      <module name="cards" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="loans" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.microservice.loans.LoansApplication" />
+      <module name="loans" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.accounts" />
+      <item itemvalue="Application.cards" />
+      <item itemvalue="Application.loans" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
