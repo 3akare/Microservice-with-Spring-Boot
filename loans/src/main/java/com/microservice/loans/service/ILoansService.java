@@ -21,7 +21,7 @@ public interface ILoansService {
     boolean updateLoan(LoansDto loansDto);
 
     /**
-     * @param loansDto - LoansDto object
+     * @param mobileNumber - String object
      * @return boolean
      */
     boolean deleteLoan(String mobileNumber);
