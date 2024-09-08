@@ -1,11 +1,11 @@
 spring:
-  profiles:
-    active:
-      - "qa" #activate qa profile
-    config:
-      import:
-        - "application-qa.yml"
-        - "application-prod.yml"
+#  profiles:
+#    active:
+#      - "qa" #activate qa profile
+#    config:
+#      import:
+#        - "application-qa.yml"
+#        - "application-prod.yml"
   datasource:
     url: jdbc:h2:mem:loans
     username: sa
@@ -16,6 +16,8 @@ spring:
     path: /h2-console
   application:
     name: loans
+  profiles:
+    active: prod
   #  datasource:
   #    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/loans
   #    password: ${MYSQL_PASSWORD:0987}
@@ -26,15 +28,17 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import: optional:configserver:http://localhost:8084/
 
-build:
-  version: "v1"
+#build:
+#  version: "v1"
 
 server:
   port: 8083
 
-contact:
-  author: David Bakare
-  profile: default
-  service: loans
-  url: https://github.com/3akare/Microservices-with-Spring-Boot
+#contact:
+#  author: David Bakare
+#  profile: default
+#  service: loans
+#  url: https://github.com/3akare/Microservices-with-Spring-Boot

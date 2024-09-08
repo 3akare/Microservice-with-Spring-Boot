@@ -19,6 +19,10 @@
       <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/resources/application-prod.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application-qa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/resources/application-qa.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loans/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/loans/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/src/main/resources/application-qa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/loans/src/main/resources/application-qa.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/loans/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +96,7 @@
       <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\accounts" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.cards">
+  <component name="RunManager" selected="Application.loans">
     <configuration name="accounts" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.microservice.accounts.AccountsApplication" />
       <module name="accounts" />
