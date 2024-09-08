@@ -2,6 +2,10 @@ spring:
   profiles:
     active:
       - "qa" #activate qa profile
+    config:
+      import:
+        - "application-qa.yml"
+        - "application-prod.yml"
   datasource:
     url: jdbc:h2:mem:loans
     username: sa
@@ -23,5 +27,14 @@ spring:
       ddl-auto: update
     show-sql: true
 
+build:
+  version: "v1"
+
 server:
   port: 8083
+
+contact:
+  author: David Bakare
+  profile: default
+  service: loans
+  url: https://github.com/3akare/Microservices-with-Spring-Boot

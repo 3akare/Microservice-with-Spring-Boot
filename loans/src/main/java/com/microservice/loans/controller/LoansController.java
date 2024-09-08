@@ -1,6 +1,7 @@
 package com.microservice.loans.controller;
 
 import com.microservice.loans.constant.LoansConstants;
+import com.microservice.loans.dto.LoansContactDto;
 import com.microservice.loans.dto.LoansDto;
 import com.microservice.loans.dto.ResponseDto;
 import com.microservice.loans.service.ILoansService;
@@ -10,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,10 +24,19 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping( value = "/api/v1/loans", produces = MediaType.APPLICATION_JSON_VALUE)
-@RequiredArgsConstructor
 public class LoansController {
     private final ILoansService iLoansService;
     private final Environment environment;
+    private final LoansContactDto loansContactDto;
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    public LoansController(ILoansService iLoansService, Environment environment, LoansContactDto loansContactDto) {
+        this.iLoansService = iLoansService;
+        this.environment = environment;
+        this.loansContactDto = loansContactDto;
+    }
 
     @Operation(
             summary = "Create Loan REST API",
@@ -138,5 +149,35 @@ public class LoansController {
         return ResponseEntity.status(HttpStatus.OK).body(
                 environment.getProperty("JAVA_HOME")
         );
+    }
+
+    @Operation(
+            summary = "Fetch Build Version",
+            description = "REST APIs to fetch Build version"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status OK"
+    )
+    @GetMapping("/build-version")
+    public ResponseEntity<String> getBuildVersion(){
+        /* get java version */
+        return ResponseEntity.status(HttpStatus.OK).body(
+                buildVersion
+        );
+    }
+
+    @Operation(
+            summary = "Fetch Contact Info",
+            description = "REST APIs to fetch Contact Info"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status OK"
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<LoansContactDto> getContactInfo(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(loansContactDto);
     }
 }
