@@ -1,6 +1,7 @@
 package com.microservice.cards.controller;
 
 import com.microservice.cards.constant.CardsConstants;
+import com.microservice.cards.dto.CardsContactDto;
 import com.microservice.cards.dto.CardsDto;
 import com.microservice.cards.dto.ResponseDto;
 import com.microservice.cards.service.ICardsService;
@@ -11,6 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,11 +26,20 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(value = "/api/v1/cards", produces = MediaType.APPLICATION_JSON_VALUE)
-@RequiredArgsConstructor
 @Validated
 public class CardsController {
     private final ICardsService iCardService;
     private final Environment environment;
+    private final CardsContactDto cardsContactDto;
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    public CardsController(ICardsService iCardService, Environment environment, CardsContactDto cardsContactDto) {
+        this.iCardService = iCardService;
+        this.environment = environment;
+        this.cardsContactDto = cardsContactDto;
+    }
 
     @Operation(
             summary = "Create Card REST API",
@@ -147,5 +158,35 @@ public class CardsController {
         return ResponseEntity.status(HttpStatus.OK).body(
                 environment.getProperty("JAVA_HOME")
         );
+    }
+
+    @Operation(
+            summary = "Fetch Build Version",
+            description = "REST APIs to fetch Build version"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status OK"
+    )
+    @GetMapping("/build-version")
+    public ResponseEntity<String> getBuildVersion(){
+        /* get java version */
+        return ResponseEntity.status(HttpStatus.OK).body(
+                buildVersion
+        );
+    }
+
+    @Operation(
+            summary = "Fetch Contact Info",
+            description = "REST APIs to fetch Contact Info"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status OK"
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<CardsContactDto> getContactInfo(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(cardsContactDto);
     }
 }

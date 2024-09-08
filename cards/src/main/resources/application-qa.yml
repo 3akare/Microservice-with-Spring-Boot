@@ -1,6 +1,6 @@
 spring:
   config:
-    on-active: "qa"
+    on-active: qa
 
 contact:
   author: David Bakare

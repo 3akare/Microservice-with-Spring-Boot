@@ -1,6 +1,6 @@
 spring:
   config:
-    on-active: "prod"
+    on-active: prod
 
 contact:
   author: David Bakare
