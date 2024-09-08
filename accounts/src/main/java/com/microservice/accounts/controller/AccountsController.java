@@ -1,6 +1,7 @@
 package com.microservice.accounts.controller;
 
 import com.microservice.accounts.constant.AccountsConstants;
+import com.microservice.accounts.dto.AccountsContactDto;
 import com.microservice.accounts.dto.CustomerDto;
 import com.microservice.accounts.dto.ResponseDto;
 import com.microservice.accounts.service.IAccountService;
@@ -11,6 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,11 +26,20 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(value = "/api/v1/accounts", produces = MediaType.APPLICATION_JSON_VALUE)
-@RequiredArgsConstructor
 @Validated
 public class AccountsController {
     public final IAccountService iAccountService;
     private final Environment environment;
+    private final AccountsContactDto accountsContactDto;
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    public AccountsController(IAccountService iAccountService, Environment environment, AccountsContactDto accountsContactDto) {
+        this.iAccountService = iAccountService;
+        this.environment = environment;
+        this.accountsContactDto = accountsContactDto;
+    }
 
     @Operation(
         summary = "Create Account REST API",
@@ -140,5 +151,35 @@ public class AccountsController {
         return ResponseEntity.status(HttpStatus.OK).body(
                 environment.getProperty("JAVA_HOME")
         );
+    }
+
+    @Operation(
+            summary = "Fetch Build Version",
+            description = "REST APIs to fetch Build version"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status OK"
+    )
+    @GetMapping("/build-version")
+    public ResponseEntity<String> getBuildVersion(){
+        /* get java version */
+        return ResponseEntity.status(HttpStatus.OK).body(
+                buildVersion
+        );
+    }
+
+    @Operation(
+            summary = "Fetch Contact Info",
+            description = "REST APIs to fetch Contact Info"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status OK"
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactDto> getContactInfo(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(accountsContactDto);
     }
 }
