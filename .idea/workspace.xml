@@ -15,7 +15,10 @@
       <change beforePath="$PROJECT_DIR$/accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/resources/application-prod.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/src/main/resources/application-qa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/resources/application-qa.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cards/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application-qa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/resources/application-qa.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +60,7 @@
     "Application.LoansApplication.executor": "Debug",
     "Application.accounts.executor": "Run",
     "Application.cards.executor": "Run",
+    "Application.configserver.executor": "Run",
     "Application.loans.executor": "Run",
     "Docker.accounts: Compose Deployment.executor": "Run",
     "Maven.accounts [clean].executor": "Run",
@@ -88,20 +92,7 @@
       <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\accounts" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.accounts">
-    <configuration name="ConfigserverApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.microservice.configserver.ConfigserverApplication" />
-      <module name="configserver" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.microservice.configserver.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.cards">
     <configuration name="accounts" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.microservice.accounts.AccountsApplication" />
       <module name="accounts" />
@@ -112,6 +103,19 @@
     <configuration name="cards" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.microservice.cards.CardsApplication" />
       <module name="cards" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="configserver" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.microservice.configserver.ConfigserverApplication" />
+      <module name="configserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.microservice.configserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,12 +148,12 @@
       <item itemvalue="Application.accounts" />
       <item itemvalue="Application.cards" />
       <item itemvalue="Application.loans" />
-      <item itemvalue="Application.ConfigserverApplication" />
+      <item itemvalue="Application.configserver" />
       <item itemvalue="Docker.accounts: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConfigserverApplication" />
+        <item itemvalue="Application.configserver" />
         <item itemvalue="Docker.accounts: Compose Deployment" />
       </list>
     </recent_temporary>
