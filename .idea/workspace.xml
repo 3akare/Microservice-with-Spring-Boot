@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3264849-4bf5-4d19-9432-7231be8ea4fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/configserver/src/main/resources/config/accounts-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configserver/src/main/resources/config/accounts-qa.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configserver/src/main/resources/config/accounts.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/CardsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/CardsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/controller/CardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/java/com/microservice/cards/controller/CardsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application-prod.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application-qa.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +46,7 @@
   "keyToString": {
     "Application.AccountsApplication.executor": "Run",
     "Application.CardsApplication.executor": "Debug",
+    "Application.ConfigserverApplication.executor": "Debug",
     "Application.LoansApplication.executor": "Debug",
     "Application.accounts.executor": "Run",
     "Application.cards.executor": "Run",
@@ -63,7 +62,7 @@
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DAVID-BAKARE/Documents/Microservices with Spring Boot/loans/src/main/resources",
+    "last_opened_file_path": "C:/Users/DAVID-BAKARE/Documents/Microservices with Spring Boot/configserver/src/main/resources/config",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -74,6 +73,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\configserver\src\main\resources\config" />
       <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\loans\src\main\resources" />
       <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\accounts\src\main\resources" />
     </key>
@@ -81,7 +81,20 @@
       <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\accounts" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.cards">
+  <component name="RunManager" selected="Application.ConfigserverApplication">
+    <configuration name="ConfigserverApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.microservice.configserver.ConfigserverApplication" />
+      <module name="configserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.microservice.configserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="accounts" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.microservice.accounts.AccountsApplication" />
       <module name="accounts" />
@@ -125,10 +138,12 @@
       <item itemvalue="Application.accounts" />
       <item itemvalue="Application.cards" />
       <item itemvalue="Application.loans" />
+      <item itemvalue="Application.ConfigserverApplication" />
       <item itemvalue="Docker.accounts: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ConfigserverApplication" />
         <item itemvalue="Docker.accounts: Compose Deployment" />
       </list>
     </recent_temporary>
