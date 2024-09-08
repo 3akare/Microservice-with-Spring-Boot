@@ -1,9 +1,9 @@
 spring:
   config:
-    on-active: prod
+    on-active: "qa"
 
 contact:
   author: David Bakare
-  profile: prod
-  service: accounts
+  profile: qa
+  service: cards
   url: https://github.com/3akare/Microservices-with-Spring-Boot
