@@ -1,4 +1,7 @@
 spring:
+  profiles:
+    active:
+      - "qa" #activate qa profile
   datasource:
     url: jdbc:h2:mem:loans
     username: sa

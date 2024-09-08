@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 public class CardsController {
     private final ICardsService iCardService;
+    private final Environment environment;
 
     @Operation(
             summary = "Create Card REST API",
@@ -129,5 +131,21 @@ public class CardsController {
         return ResponseEntity.status((HttpStatus.INTERNAL_SERVER_ERROR)).body(
                 new ResponseDto(CardsConstants.STATUS_200, CardsConstants.MESSAGE_200)
             );
+    }
+
+    @Operation(
+            summary = "Fetch Java Version",
+            description = "REST APIs to fetch Java version"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "HTTP Status OK"
+    )
+    @GetMapping("/java-version")
+    public ResponseEntity<String> getJavaVersion(){
+        /* get java version */
+        return ResponseEntity.status(HttpStatus.OK).body(
+                environment.getProperty("JAVA_HOME")
+        );
     }
 }
