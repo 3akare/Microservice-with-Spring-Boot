@@ -2,14 +2,22 @@ spring:
   application:
     name: configserver
   profiles:
-    active: native
+    active: git
+    #active: native #from local machine
   cloud:
     config:
       server:
-        native:
+        git:
+          uri: https://github.com/3akare/Microservice-Config.git
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+#        native:
           #search-locations: "classpath:/config" #read from classpath
           #search-locations: "file:///User... file path" # read from file system
-        search-locations:
+encrypt:
+  key: OIDJOIEJIDJIFODONEKODNOKENDONEPFOJPJFPIJFBP #to encrypt sensitive data
 
 server:
   port: 8084
