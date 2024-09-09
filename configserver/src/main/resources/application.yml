@@ -15,7 +15,7 @@ spring:
           force-pull: true
 #        native:
           #search-locations: "classpath:/config" #read from classpath
-          #search-locations: "file:///User... file path" # read from file system
+          #search-locations: "file:///C://Users//DAVID-BAKARE//Documents//Microservice-Config" # read from file system
 encrypt:
   key: OIDJOIEJIDJIFODONEKODNOKENDONEPFOJPJFPIJFBP #to encrypt sensitive data
 
