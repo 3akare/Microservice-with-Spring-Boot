@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3264849-4bf5-4d19-9432-7231be8ea4fb" name="Changes" comment="" />
+    <list default="true" id="f3264849-4bf5-4d19-9432-7231be8ea4fb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cards/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loans/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loans/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,9 +49,9 @@
     "Application.CardsApplication.executor": "Debug",
     "Application.ConfigserverApplication.executor": "Debug",
     "Application.LoansApplication.executor": "Debug",
-    "Application.accounts.executor": "Debug",
-    "Application.cards.executor": "Debug",
-    "Application.configserver.executor": "Debug",
+    "Application.accounts.executor": "Run",
+    "Application.cards.executor": "Run",
+    "Application.configserver.executor": "Run",
     "Application.loans.executor": "Run",
     "Docker.accounts: Compose Deployment.executor": "Run",
     "Maven.accounts [clean].executor": "Run",
@@ -77,7 +83,7 @@
       <recent name="C:\Users\DAVID-BAKARE\Documents\Microservices with Spring Boot\accounts" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.accounts">
+  <component name="RunManager" selected="Application.loans">
     <configuration name="accounts" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.microservice.accounts.AccountsApplication" />
       <module name="accounts" />
