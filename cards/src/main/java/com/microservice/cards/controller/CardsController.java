@@ -1,6 +1,7 @@
 package com.microservice.cards.controller;
 
 import com.microservice.cards.constant.CardsConstants;
+import com.microservice.cards.dto.BuildVersionDto;
 import com.microservice.cards.dto.CardsContactDto;
 import com.microservice.cards.dto.CardsDto;
 import com.microservice.cards.dto.ResponseDto;
@@ -31,14 +32,13 @@ public class CardsController {
     private final ICardsService iCardService;
     private final Environment environment;
     private final CardsContactDto cardsContactDto;
+    private final BuildVersionDto buildVersionDto;
 
-    @Value("${build.version}")
-    private String buildVersion;
-
-    public CardsController(ICardsService iCardService, Environment environment, CardsContactDto cardsContactDto) {
+    public CardsController(ICardsService iCardService, Environment environment, CardsContactDto cardsContactDto, BuildVersionDto buildVersionDto) {
         this.iCardService = iCardService;
         this.environment = environment;
         this.cardsContactDto = cardsContactDto;
+        this.buildVersionDto = buildVersionDto;
     }
 
     @Operation(
@@ -169,10 +169,10 @@ public class CardsController {
             description = "HTTP Status OK"
     )
     @GetMapping("/build-version")
-    public ResponseEntity<String> getBuildVersion(){
+    public ResponseEntity<BuildVersionDto> getBuildVersion(){
         /* get java version */
         return ResponseEntity.status(HttpStatus.OK).body(
-                buildVersion
+                buildVersionDto
         );
     }
 

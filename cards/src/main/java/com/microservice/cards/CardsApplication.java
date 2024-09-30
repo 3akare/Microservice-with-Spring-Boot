@@ -1,5 +1,6 @@
 package com.microservice.cards;
 
+import com.microservice.cards.dto.BuildVersionDto;
 import com.microservice.cards.dto.CardsContactDto;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
@@ -13,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl") /* All this to handle @ModifiedBy */
-@EnableConfigurationProperties(value = CardsContactDto.class)
+@EnableConfigurationProperties(value = {CardsContactDto.class, BuildVersionDto.class})
 @OpenAPIDefinition(info = @Info(
 		title = "Cards microservice REST API Documentation",
 		description = "Bank Cards microservice REST API Documentation",
