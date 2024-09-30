@@ -2,6 +2,7 @@ package com.microservice.accounts.controller;
 
 import com.microservice.accounts.constant.AccountsConstants;
 import com.microservice.accounts.dto.AccountsContactDto;
+import com.microservice.accounts.dto.BuildVersionDto;
 import com.microservice.accounts.dto.CustomerDto;
 import com.microservice.accounts.dto.ResponseDto;
 import com.microservice.accounts.service.IAccountService;
@@ -11,7 +12,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,14 +30,16 @@ public class AccountsController {
     public final IAccountService iAccountService;
     private final Environment environment;
     private final AccountsContactDto accountsContactDto;
+    private final BuildVersionDto buildVersionDto;
 
-    @Value("${build.version}")
-    private String buildVersion;
+//    @Value("${build.version}")
+//    private String buildVersion;
 
-    public AccountsController(IAccountService iAccountService, Environment environment, AccountsContactDto accountsContactDto) {
+    public AccountsController(IAccountService iAccountService, Environment environment, AccountsContactDto accountsContactDto, BuildVersionDto buildVersionDto) {
         this.iAccountService = iAccountService;
         this.environment = environment;
         this.accountsContactDto = accountsContactDto;
+        this.buildVersionDto = buildVersionDto;
     }
 
     @Operation(
@@ -161,10 +163,10 @@ public class AccountsController {
             description = "HTTP Status OK"
     )
     @GetMapping("/build-version")
-    public ResponseEntity<String> getBuildVersion(){
+    public ResponseEntity<BuildVersionDto> getBuildVersion(){
         /* get java version */
         return ResponseEntity.status(HttpStatus.OK).body(
-                buildVersion
+                buildVersionDto
         );
     }
 

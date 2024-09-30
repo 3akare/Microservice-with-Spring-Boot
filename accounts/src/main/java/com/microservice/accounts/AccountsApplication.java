@@ -1,6 +1,7 @@
 package com.microservice.accounts;
 
 import com.microservice.accounts.dto.AccountsContactDto;
+import com.microservice.accounts.dto.BuildVersionDto;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
@@ -13,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl") /* All this to handle @ModifiedBy */
-@EnableConfigurationProperties(value = AccountsContactDto.class)
+@EnableConfigurationProperties(value = { AccountsContactDto.class, BuildVersionDto.class })
 @OpenAPIDefinition(info = @Info(
 		title = "Accounts microservice REST API Documentation",
 		description = "Bank Accounts microservice REST API Documentation",
