@@ -1,6 +1,7 @@
 package com.microservice.loans.controller;
 
 import com.microservice.loans.constant.LoansConstants;
+import com.microservice.loans.dto.BuildVersionDto;
 import com.microservice.loans.dto.LoansContactDto;
 import com.microservice.loans.dto.LoansDto;
 import com.microservice.loans.dto.ResponseDto;
@@ -28,14 +29,13 @@ public class LoansController {
     private final ILoansService iLoansService;
     private final Environment environment;
     private final LoansContactDto loansContactDto;
+    private final BuildVersionDto buildVersionDto;
 
-    @Value("${build.version}")
-    private String buildVersion;
-
-    public LoansController(ILoansService iLoansService, Environment environment, LoansContactDto loansContactDto) {
+    public LoansController(ILoansService iLoansService, Environment environment, LoansContactDto loansContactDto, BuildVersionDto buildVersionDto) {
         this.iLoansService = iLoansService;
         this.environment = environment;
         this.loansContactDto = loansContactDto;
+        this.buildVersionDto = buildVersionDto;
     }
 
     @Operation(
@@ -160,10 +160,10 @@ public class LoansController {
             description = "HTTP Status OK"
     )
     @GetMapping("/build-version")
-    public ResponseEntity<String> getBuildVersion(){
+    public ResponseEntity<BuildVersionDto> getBuildVersion(){
         /* get java version */
         return ResponseEntity.status(HttpStatus.OK).body(
-                buildVersion
+                buildVersionDto
         );
     }
 
