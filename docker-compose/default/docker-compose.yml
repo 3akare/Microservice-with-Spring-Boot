@@ -1,56 +1,35 @@
-version: '3.7' # Specify the version for Docker Compose
+version: '3.7'
 
 services:
   accountsdb:
     container_name: accountsdb
-    image: mysql:5.7
     ports:
       - 3307:3306
     environment:
       MYSQL_DATABASE: accountsdb
-      MYSQL_ROOT_PASSWORD: "0987" # Ensure this is set
-    networks:
-      - bank-ms
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 10s
-      retries: 10
-      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
 
   cardsdb:
     container_name: cardsdb
-    image: mysql:5.7
     ports:
       - 3308:3306
     environment:
       MYSQL_DATABASE: cardsdb
-      MYSQL_ROOT_PASSWORD: "0987"
-    networks:
-      - bank-ms
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 10s
-      retries: 10
-      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
 
   loansdb:
     container_name: loansdb
-    image: mysql:5.7
     ports:
       - 3309:3306
     environment:
       MYSQL_DATABASE: loansdb
-      MYSQL_ROOT_PASSWORD: "0987"
-    networks:
-      - bank-ms
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 10s
-      retries: 10
-      start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-db-config
 
   # Config Server
   configserver:
@@ -58,14 +37,15 @@ services:
     container_name: configserver-ms
     ports:
       - 8084:8084
-    networks:
-      - bank-ms
     healthcheck:
       test: "curl --fail --silent localhost:8084/actuator/health/readiness | grep UP || exit 1"
       interval: 10s
       timeout: 10s
       retries: 10
       start_period: 10s
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
 
   # Accounts Microservice
   accounts:
@@ -79,8 +59,9 @@ services:
     depends_on:
       accountsdb:
         condition: service_healthy
-    networks:
-      - bank-ms
+    extends:
+      file: common-config.yml
+      service:  microservice-configserver-config
 
   # Cards Microservice
   cards:
@@ -94,8 +75,9 @@ services:
     depends_on:
       cardsdb:
         condition: service_healthy
-    networks:
-      - bank-ms
+    extends:
+      file: common-config.yml
+      service:  microservice-configserver-config
 
   # Loans Microservice
   loans:
@@ -109,8 +91,9 @@ services:
     depends_on:
       loansdb:
         condition: service_healthy
-    networks:
-      - bank-ms
+    extends:
+      file: common-config.yml
+      service:  microservice-configserver-config
 
 networks:
   bank-ms:

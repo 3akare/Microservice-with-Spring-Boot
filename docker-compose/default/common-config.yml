@@ -14,8 +14,6 @@ services:
       retries: 10
       start_period: 10s
     environment:
-      SPRING_DATASOURCE_USERNAME: "root"
-      SPRING_DATASOURCE_PASSWORD: "0987"
       MYSQL_ROOT_PASSWORD: "0987"
 
   microservice-base-config:
@@ -35,5 +33,3 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8084/"
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: "0987"
