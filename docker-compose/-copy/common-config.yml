@@ -1,0 +1,43 @@
+services:
+  network-deploy-service:
+    networks:
+      - bank-ms
+
+  microservice-base-config:
+    extends:
+      service: network-deploy-service
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    # environment:
+      # SPRING_RABBITMQ_HOST: rabbit
+
+  microservice-configserver-config:
+    extends:
+      service: microservice-base-config
+    depends_on:
+      configserver:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8084/"
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 0987
+
+  microservice-db-config:
+    image: mysql:5.7
+    extends:
+      service: network-deploy-service
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      interval: 10s
+      retries: 10
+      start_period: 10s
+    environment:
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "0987"
+      MYSQL_ROOT_PASSWORD: "0987"
+      # MYSQL_USER: root (apparently this is mysql doesn't wnat this)
+      # MYSQL_PASSWORD: 0987
