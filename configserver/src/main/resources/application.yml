@@ -26,8 +26,8 @@ management:
   endpoints:
     web:
       exposure:
-        included: "*"
-  health:  # check the readiness and liveness of the config server using actuator health. This helps ensure that the server is aliv and ready to be used
+        include: "*"
+  health:  # check the readiness and liveness of the config server using actuator health. This helps ensure that the server is alive and ready to be used
     readiness-state:
       enabled: true
     liveness-state:
