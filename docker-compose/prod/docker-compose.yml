@@ -1,39 +1,27 @@
 version: '3.7'
 
 services:
-  accountsdb:
-    container_name: accountsdb
+  # Eureka server
+  eurekaserver:
+    image: 3akare/eurekaserver:v4
+    container_name: eurekaserver-ms
     ports:
-      - 3307:3306
-    environment:
-      MYSQL_DATABASE: accountsdb
+      - 8085:8085
+    healthcheck:
+      test: "curl --fail --silent localhost:8085/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 10s
     extends:
       file: common-config.yml
-      service: microservice-db-config
-
-  cardsdb:
-    container_name: cardsdb
-    ports:
-      - 3308:3306
+      service: microservice-configserver-config
     environment:
-      MYSQL_DATABASE: cardsdb
-    extends:
-      file: common-config.yml
-      service: microservice-db-config
-
-  loansdb:
-    container_name: loansdb
-    ports:
-      - 3309:3306
-    environment:
-      MYSQL_DATABASE: loansdb
-    extends:
-      file: common-config.yml
-      service: microservice-db-config
+      SPRING_APPLICATION_NAME: eurekaserver
 
   # Config Server
   configserver:
-    image: 3akare/configserver:v3
+    image: 3akare/configserver:v4
     container_name: configserver-ms
     ports:
       - 8084:8084
@@ -49,51 +37,39 @@ services:
 
   # Accounts Microservice
   accounts:
-    image: 3akare/accounts:v3
+    image: 3akare/accounts:v4
     container_name: accounts-ms
     ports:
       - 8081:8081
     environment:
       SPRING_APPLICATION_NAME: accounts
-      SPRING_DATASOURCE_URL: jdbc:mysql://accountsdb:3306/accountsdb
-    depends_on:
-      accountsdb:
-        condition: service_healthy
     extends:
       file: common-config.yml
-      service:  microservice-configserver-config
+      service:  microservice-eureka-config
 
   # Cards Microservice
   cards:
-    image: 3akare/cards:v3
+    image: 3akare/cards:v4
     container_name: cards-ms
     ports:
       - 8082:8082
     environment:
       SPRING_APPLICATION_NAME: cards
-      SPRING_DATASOURCE_URL: jdbc:mysql://cardsdb:3306/cardsdb
-    depends_on:
-      cardsdb:
-        condition: service_healthy
     extends:
       file: common-config.yml
-      service:  microservice-configserver-config
+      service:  microservice-eureka-config
 
   # Loans Microservice
   loans:
-    image: 3akare/loans:v3
+    image: 3akare/loans:v4
     container_name: loans-ms
     ports:
       - 8083:8083
     environment:
       SPRING_APPLICATION_NAME: loans
-      SPRING_DATASOURCE_URL: jdbc:mysql://loansdb:3306/loansdb
-    depends_on:
-      loansdb:
-        condition: service_healthy
     extends:
       file: common-config.yml
-      service:  microservice-configserver-config
+      service:  microservice-eureka-config
 
 networks:
   bank-ms:

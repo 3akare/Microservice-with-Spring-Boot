@@ -2,20 +2,6 @@ services:
   network-deploy-service:
     networks:
       - bank-ms
-
-  microservice-db-config:
-    image: mysql:5.7
-    extends:
-      service: network-deploy-service
-    healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 10s
-      interval: 10s
-      retries: 10
-      start_period: 10s
-    environment:
-      MYSQL_ROOT_PASSWORD: "0987"
-
   microservice-base-config:
     extends:
       service: network-deploy-service
@@ -23,7 +9,6 @@ services:
       resources:
         limits:
           memory: 700m
-
   microservice-configserver-config:
     extends:
       service: microservice-base-config
@@ -33,3 +18,12 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: qa
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8084/"
+  microservice-eureka-config:
+    extends:
+      service: microservice-configserver-config
+    depends_on:
+      eurekaserver:
+        condition: service_healthy
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8085/eureka/
+      H2_OPTIONS: "webAllowOthers"
