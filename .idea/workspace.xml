@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3264849-4bf5-4d19-9432-7231be8ea4fb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cards/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cards/pom.xml" afterDir="false" />
@@ -50,12 +53,14 @@
     "Application.CardsApplication.executor": "Debug",
     "Application.ConfigserverApplication.executor": "Debug",
     "Application.EurekaserverApplication.executor": "Run",
+    "Application.GatewayserverApplication.executor": "Debug",
     "Application.LoansApplication.executor": "Debug",
-    "Application.accounts.executor": "Run",
-    "Application.cards.executor": "Run",
-    "Application.configserver.executor": "Run",
-    "Application.eureka.executor": "Run",
-    "Application.loans.executor": "Run",
+    "Application.accounts.executor": "Debug",
+    "Application.cards.executor": "Debug",
+    "Application.configserver.executor": "Debug",
+    "Application.eureka.executor": "Debug",
+    "Application.gatewayserver.executor": "Debug",
+    "Application.loans.executor": "Debug",
     "Docker.accounts: Compose Deployment.executor": "Run",
     "Maven.accounts [clean].executor": "Run",
     "Maven.accounts [install].executor": "Run",
@@ -69,7 +74,7 @@
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/DAVID-BAKARE/Documents/Microservices with Spring Boot/eurekaserver",
+    "last_opened_file_path": "C:/Users/DAVID-BAKARE/Documents/Microservices with Spring Boot/gatewayserver",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -95,7 +100,7 @@
       <recent name="com.microservice.cards.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.accounts">
+  <component name="RunManager" selected="Application.gatewayserver">
     <configuration name="accounts" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.microservice.accounts.AccountsApplication" />
       <module name="accounts" />
@@ -136,6 +141,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="gatewayserver" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com._akare.gatewayserver.GatewayserverApplication" />
+      <module name="gatewayserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com._akare.gatewayserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="loans" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -164,12 +182,14 @@
       <item itemvalue="Application.accounts" />
       <item itemvalue="Application.cards" />
       <item itemvalue="Application.loans" />
+      <item itemvalue="Application.gatewayserver" />
       <item itemvalue="Application.eureka" />
       <item itemvalue="Application.configserver" />
       <item itemvalue="Docker.accounts: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.gatewayserver" />
         <item itemvalue="Application.eureka" />
         <item itemvalue="Application.configserver" />
         <item itemvalue="Docker.accounts: Compose Deployment" />
